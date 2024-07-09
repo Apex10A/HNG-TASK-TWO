@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='bg-[#ffb6c1] px-14 py-10'>
+    <div className='bg-[#ffb6c1] md:px-14 px-5 py-6 md:py-10'>
       <div className='flex items-center justify-between pb-3'>
       <div>
         <h1 className='pb-1'>Skin Hub</h1>
@@ -11,9 +11,9 @@ const Footer = () => {
       </div>
 
       <div className='list-none'>
-        <li className='text-sm pb-2'>Home</li>
-        <li className='text-sm pb-2'>Products</li>
-        <li className='text-sm pb-2'>Contacts</li>
+        <li className=' pb-2'>Home</li>
+        <li className=' pb-2'>Products</li>
+        <li className=' pb-2'>Contacts</li>
       </div>
       </div>
 
