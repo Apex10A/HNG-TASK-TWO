@@ -32,7 +32,7 @@ const ProductThree = () => {
     ];
 
     return (
-        <div className='min-h-screen relative bg-[#fbf4f5]'>
+        <div className=' relative bg-[#fbf4f5]'>
             <div className='px-10 py-32'>
                 <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4'>
                     {ProductItemsDataTwo.map((item) => (

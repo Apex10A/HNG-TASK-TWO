@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CopyIcon from '@/assets/SVG/CopyIcon';
 import SuccessTick from "../../../assets/Images/SuccesTick.png";
+import HeaderThree from '../header/HeaderThree';
 
 const Payment = () => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -18,7 +19,11 @@ const Payment = () => {
 
   if (paymentSuccess) {
     return (
-      <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
+      <div>
+        <div>
+          <HeaderThree/>
+        </div>
+        <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
         <div className='max-w-xl text-center flex flex-col items-center justify-center'>
           <Image src={SuccessTick} alt='' className='mx-auto '/>
           <p className='pt-6 pb-5 semibold'>Payment received successfully</p>
@@ -64,15 +69,22 @@ const Payment = () => {
           </div>
         </div>
 
+        <Link href='/'>
         <div>
-          <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-4 py-2'>Back Home</button>
+          <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-10 md:px-20 py-2 text-sm semibold border-[0.2px] border-[#e3dadb] w-full'>Back Home</button>
         </div>
+        </Link>
+      </div>
       </div>
     );
   }
 
   return (
-    <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
+    <div className=''>
+      <div>
+        <HeaderThree />
+      </div>
+      <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
       <div className='max-w-2xl text-center flex flex-col items-center justify-center'>
         <div>
           <p className='pt-6 pb-5 semibold'>Kindly make payment for your goods</p>
@@ -123,6 +135,7 @@ const Payment = () => {
           <p className='text-center semibold'>This screen will be updated in 5 secs after payment</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

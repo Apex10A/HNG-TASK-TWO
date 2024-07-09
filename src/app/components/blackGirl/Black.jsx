@@ -10,7 +10,7 @@ const Black = () => {
       <div className='w-full bg-[#c78500] md:rounded-l-xl md:rounded-r-xl'>
       <div className='md:flex items-center justify-between'>
       <div>
-        <Image src={FaceCard} alt='' className='rounded-l-xl'/>
+        <Image src={FaceCard} alt='' className='rounded-l-xl with'/>
       </div>
 
       <div className='bg-[#c78500] h-full py-8 md:py-0'>
@@ -19,7 +19,7 @@ const Black = () => {
       </div>
 
       <div>
-        <Image src={BlackCombo} alt='' className='rounded-r-xl'/>
+        <Image src={BlackCombo} alt='' className='rounded-r-xl with'/>
       </div>
       </div>
       </div>

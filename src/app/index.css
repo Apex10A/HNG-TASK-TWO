@@ -63,4 +63,9 @@
    }
   }
 
+  @media(max-width: 768px) {
+    .with{
+      width: 100%;
+    }
+  }
   
