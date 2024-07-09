@@ -1,66 +1,81 @@
-import React from 'react'
-import Image from 'next/image'
-import CartImage from "../../../assets/Images/CartImage.png"
-import CloseIcon from "../../../assets/SVG/Close.jsx"
+import React from 'react';
+import Image from 'next/image';
+import CartImage from "../../../assets/Images/CartImage.png";
+import CloseIcon from "../../../assets/SVG/Close.jsx";
 
-const CartModal = () => {
+const CartModal = ({ onClose }) => {
+  // Dummy data for product information (replace with actual dynamic data if needed)
+  const product = {
+    name: "MEDIX 5.5 Body Moisturizer",
+    description: "Glycolic and Lactic Acid Body Moisturizer",
+    price: 15000,
+    imageUrl: CartImage,
+    quantity: 1,
+  };
+
+  const handleModalClick = (e) => {
+    // Prevent closing modal when clicking inside the modal content
+    e.stopPropagation();
+  };
+
   return (
-    <div className='bg-[#4b494a] min-h-screen flex flex-col items-center justify-center'>
-      <div className='bg-[#fefafb] w-5/12 mx-auto rounded-lg px-5 py-8'>
-      <div className='mb-10'>
-      <div className=''>
-        <p className='text-center text-sm mb-5'>Product added to cart successfully!</p>
-      </div>
-      <div>
-        <p className='text-center category text-red-600'>Please sign in for a proper tracking of your product</p>
-      </div>
-      </div>
+    <div
+      className='md:fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center'
+      onClick={onClose}
+    >
+      <div
+        className='bg-[#fefafb] md:w-2/3 lg:w-1/2 xl:w-2/5 rounded-lg px-5 h-full md:h-auto py-8 relative'
+        onClick={handleModalClick}
+      >
+        {/* Close Modal Icon */}
+        <button
+          className='absolute top-4 right-4'
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </button>
 
-      <div className='flex items-center justify-center'>
-        <div>
-            <Image src={CartImage} alt='' className='max-w-[80%]'/>
-        </div>
-        <div className=''>
-            <h1>MEDIX 5.5 <span className='opacity-[0.6]'>Body Moisturizer</span></h1>
-            <p className='text-sm mt-2 mb-4 opacity-[0.6]'>Glycolic and Lactic Acid Body Moisturizer</p>
-            <div>
-            <div className='flex items-center justify-between'>
-            <button className='border-[1.2px] border-[#ffb6c1] rounded-3xl px-4 py-1'>- | 1 | +</button>
-            <p className='text-sm'>SubTotal: <span className='category'>#15,000</span></p>
-            </div>
-            </div>
-        </div>
-      </div>
-
-
-      <div>
-        <div>
-        <div className='mb-2 mt-4'>
-            <p className='category'>Cart Total</p>
-        </div>
-        <div className='border-[0.1px] w-full border-[#332427] mt-3 mb-5 opacity-[0.2]'></div>
-        <div className='w-full h-[0.1px] bg-black opacity-[0.2]'></div>
+        <div className='mb-8'>
+          <p className='text-center text-sm mb-2 text-gray-700'>Product added to cart successfully!</p>
+          <p className='text-center text-sm text-red-600'>Please sign in for proper tracking of your product.</p>
         </div>
 
-        <div className='shadow-md border-[0.2px]'>
-            <div className='bg-[#fee1e5] text-[#332427] border-b-[0.2px] flex items-center justify-between px-3 py-2'>
-                <p className='text-sm category'>SubTotal</p>
-                <p className='text-sm'>#15,000</p>
+        <div className='flex items-center justify-center'>
+          <div className='w-1/3 mr-6'>
+            <Image src={product.imageUrl} alt={product.name} className='rounded-lg' width={200} height={200} />
+          </div>
+          <div className='flex-1'>
+            <h1 className='text-xl mb-2'>{product.name}</h1>
+            <p className='text-sm text-gray-600 mb-4'>{product.description}</p>
+            <div className='flex items-center justify-between mb-4'>
+              <button className='border-[1.2px] border-[#ffb6c1] rounded-3xl px-4 py-1'>- | {product.quantity} | +</button>
+              <p className='text-sm'>SubTotal: <span className='text-red-600 font-bold'>#{product.price}</span></p>
             </div>
-            <div className='flex items-center justify-between px-3 pt-5 pb-2 '>
-                <p className='text-sm category'>Order Summary</p>
-                <p className='text-sm'>dropdown icon</p>
-            </div>
+          </div>
         </div>
-    
-    <div className='flex items-center justify-between gap-6 mt-10'>
-        <button className='w-full border-[0.2px] border-[#ffcfd7] bg-transparent text-[#ffcfd7] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
-        <button className='w-full bg-[#ffb6c1] text-[#332427] px-4 py-2 rounded-3xl text-sm'>Proceed to check out</button>
+
+        <div className='border-t border-gray-300 pt-4'>
+          <div className='flex justify-between items-center mt-6'>
+            <p className='text-sm font-medium'>Cart Total</p>
+            <div className='w-1/4 h-[0.5px] bg-gray-300'></div>
+          </div>
+          <div className='flex justify-between items-center mt-4'>
+            <p className='text-sm'>SubTotal</p>
+            <p className='text-sm'>#{product.price}</p>
+          </div>
+          <div className='flex justify-between items-center mt-4'>
+            <p className='text-sm'>Order Summary</p>
+            <p className='text-sm'>Dropdown icon</p>
+          </div>
+        </div>
+
+        <div className='flex justify-between mt-8'>
+          <button className='w-full border-[0.2px] border-[#ffcfd7] bg-transparent text-[#ffcfd7] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
+          <button className='w-full bg-[#ffb6c1] text-[#332427] px-4 py-2 rounded-3xl text-sm'>Proceed to checkout</button>
+        </div>
+      </div>
     </div>
-      </div>
-    </div>
-    </div>
-  )
+  );
 }
 
-export default CartModal
+export default CartModal;
