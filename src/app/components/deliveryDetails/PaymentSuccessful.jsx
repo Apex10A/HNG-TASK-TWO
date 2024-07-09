@@ -6,7 +6,7 @@ import CopyIcon from "../../../assets/SVG/CopyIcon.jsx"
 
 const PaymentSuccessful = () => {
   return (
-    <div className='flex flex-col items-center py-10 px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
+    <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
       <div className='max-w-xl text-center flex flex-col items-center justify-center'>
         <Image src={SuccessTick} alt='' className='mx-auto '/>
         <p className='pt-6 pb-5 semibold'>Payment received successfully</p>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import CartImage from "../../../assets/Images/CartImage.png";
+import Link from 'next/link';
 import CloseIcon from "../../../assets/SVG/Close.jsx";
 
 const CartModal = ({ onClose }) => {
@@ -71,7 +72,9 @@ const CartModal = ({ onClose }) => {
 
         <div className='flex justify-between mt-8'>
           <button className='w-full border-[0.2px] border-[#ffcfd7] bg-transparent text-[#ffcfd7] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
+          <Link href='/order'>
           <button className='w-full bg-[#ffb6c1] text-[#332427] px-4 py-2 rounded-3xl text-sm'>Proceed to checkout</button>
+          </Link>
         </div>
       </div>
     </div>

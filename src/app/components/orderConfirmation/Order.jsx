@@ -9,9 +9,9 @@ const Order = () => {
       <div>
         <HeaderTwo/>
       </div>
-      <div className='w-full min-h-screen bg-[#fbf4f5] flex flex-col items-center justify-center px-14 py-10'>
+      <div className='w-full min-h-screen bg-[#fbf4f5] flex flex-col items-center justify-center px-5 md:px-14 py-10'>
       <div className='flex items-center gap-10 justify-between w-[95%]'>
-      <div className='flex gap-5 items-center'>
+      <div className='hidden md:flex gap-5 items-center '>
         <p className='semibold text-sm'>Check out {'>'} </p>
         <h1 className='text-sm'>MEDIX 5.5 <span className='opacity-[0.7]'>Body Mosturizer</span></h1>
         <p className='opacity-[0.7] text-sm'>Glycolic and Lactic Acid Body Moisturizer</p>
@@ -24,7 +24,7 @@ const Order = () => {
         <p className='semibold'>Delivery Information</p>
       </div>
       
-        <div className='bg-[#fff] mt-5 w-[95%] rounded-lg px-4 py-5 '>
+        <div className='bg-[#fff] mt-5 md:w-[95%] rounded-lg px-4 py-5 '>
             <div className='pb-4'>
                 <p className='semibold'>Please enter your correct delivery details</p>
             </div>
@@ -90,7 +90,7 @@ const Order = () => {
             </div>
 
     <Link href='/delivery-details'>
-    <div className='my-10'>
+    <div className='md:my-10 my-6'>
             <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-4 py-2 text-sm semibold border-[0.2px] border-[#e3dadb]'>Confirm Order</button>
         </div>
     </Link>
