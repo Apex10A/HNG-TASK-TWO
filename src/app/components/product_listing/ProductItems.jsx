@@ -56,7 +56,7 @@ const ProductItems = () => {
                             {ProductItemsData.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className={`pr-10 md:pr-8 min-w-[300px] ${index === 1 || index === 3 ? 'md:mt-8' : ''}`}
+                                    className={`px-4 min-w-[250px] ${index === 1 || index === 3 ? 'mt-8' : ''}`}
                                 >
                                     <div>
                                         <Image src={item.poster_path} className='cursor-pointer' alt={item.title} />

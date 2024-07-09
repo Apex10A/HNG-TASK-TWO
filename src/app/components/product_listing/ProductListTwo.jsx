@@ -18,6 +18,7 @@ import Image from 'next/image';
 import "./ProductItems.css"
 import Heart from '@/assets/SVG/Heart';
 import ShoppingCart from "@/assets/SVG/ShoppingCart"
+import Link from "next/link"
 
 const ProductListTwo = () => {
     const ProductItemsDataTwo = [
@@ -43,6 +44,7 @@ const ProductListTwo = () => {
             <div className='px-10 '>
                 <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4'>
                     {ProductItemsDataTwo.map((item) => (
+                        <Link href='/cart'>
                         <div key={item.id} className='p-4'>
                             <div>
                                 <Image src={item.poster_path} className='cursor-pointer w-full' alt={item.title} />
@@ -64,6 +66,7 @@ const ProductListTwo = () => {
                                 <div></div>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </div>
             </div>

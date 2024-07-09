@@ -54,7 +54,7 @@ const Payment = () => {
         <div className='border-[0.1px] w-full border-[#332427] my-5 opacity-[0.2]'></div>
 
         <div>
-            <p className='text-center semibold'>This screen will be updated after payment</p>
+            <p className='text-center semibold'>This screen will be updated in 10 secs after payment</p>
         </div>
 
         

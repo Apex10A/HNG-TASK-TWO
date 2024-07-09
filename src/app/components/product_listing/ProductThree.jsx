@@ -1,84 +1,67 @@
+'use client'
+
 import React from 'react';
 import Image from 'next/image';
-import FrameOne from "../../../assets/Images/FrameOne.png";
-import FrameTwo from "../../../assets/Images/FrameTwo.png";
-import FrameThree from "../../../assets/Images/FrameThree.png";
-import FrameFour from "../../../assets/Images/FrameFour.png";
+import Retinol from "../../../assets/Images/Lamer.png";
+import BronzeGoddess from "../../../assets/Images/Otenika.png";
+import Third from "../../../assets/Images/Vaseline.png";
+import Fourth from "../../../assets/Images/Kalak.png";
+import Fifth from "../../../assets/Images/Coconut.png";
+import Sixth from "../../../assets/Images/Neutrogena.png";
+import Seventh from "../../../assets/Images/Dove.png";
+import Eight from "../../../assets/Images/Roche.png";
+import Ninth from "../../../assets/Images/Summer.png";
+import Tenth from "../../../assets/Images/Tenth.png";
 import "./ProductItems.css";
+import Heart from '@/assets/SVG/Heart';
+import ShoppingCart from "@/assets/SVG/ShoppingCart"
+import Link from 'next/link';
 
-const ProductItems = () => {
-    const ProductItemsData = [
-        {
-            id: 1,
-            title: "Naturium",
-            overview: "Body Wash",
-            description: "Gel - Gel",
-            price: "19,500",
-            poster_path: FrameFour,
-        },
-        {
-            id: 2,
-            title: "MEDIX 5.5",
-            overview: "Body Moisturizer",
-            description: "Glycolic and Lactic Acid",
-            price: "15,000",
-            poster_path: FrameOne,
-        },
-        {
-            id: 3,
-            title: "AmLactin",
-            overview: "Body Moisturizer",
-            description: "12% Lactic Acid",
-            price: "45,300",
-            poster_path: FrameTwo,
-        },
-        {
-            id: 4,
-            title: "Olay",
-            overview: "Body Moisturizer",
-            description: "Mango Butter & Vanilla Orchid",
-            price: "32,000",
-            poster_path: FrameThree,
-        },
-        // Add more items as needed
+const ProductThree = () => {
+    const ProductItemsDataTwo = [
+        { id: 1, title: "La mer", overview: "Body oil", price: "20,500", poster_path: Retinol },
+        { id: 2, title: "O’Tentika", overview: "Body Moisturizer", price: "9,430", poster_path: BronzeGoddess },
+        { id: 3, title: "Vaseline", overview: "Bodycare Package", price: "40,000", poster_path: Third },
+        { id: 4, title: "Kalak", overview: "Bodycare Package", price: "330,200", poster_path: Fourth },
+        { id: 5, title: "Coconut Coffee", overview: "BodyCare Package ", price: "38,700", poster_path: Fifth },
+        { id: 6, title: "NEUTROGENA", overview: "Body Oil", price: "9,500", poster_path: Sixth },
+        { id: 7, title: "Dove", overview: "Body Moisturizer", price: "32,430", poster_path: Seventh },
+        { id: 8, title: "LA ROCHE-POSAY", overview: "Bodycare Package", price: "240,000", poster_path: Eight },
+        { id: 9, title: "Kalak", overview: "Bodycare Package", price: "330,200", poster_path: Ninth },
+        { id: 10, title: "Summer Fridays", overview: "Body Lotion", price: "210,200", poster_path: Tenth },
     ];
 
-    const limitedData = ProductItemsData.slice(0, 10); // Take only the first 10 elements
-
     return (
-        <div className='min-h-screen relative'>
-            <div className='px-10 py-32 background'>
-                <p className='Login font-bold pl-4 pb-2'>Body Care Best Seller</p>
-                <div className='flex overflow-x-auto relative z-20'>
-                    {limitedData.map((item, index) => (
-                        <div
-                            key={item.id}
-                            className={`p-4 min-w-[250px] ${index === 1 || index === 3 ? 'mt-8' : ''}`}
-                        >
+        <div className='min-h-screen relative bg-[#fbf4f5]'>
+            <div className='px-10 py-32'>
+                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4'>
+                    {ProductItemsDataTwo.map((item) => (
+                        <Link href='/cart'>
+                        <div key={item.id} className='p-4'>
                             <div>
-                                <Image src={item.poster_path} className='cursor-pointer' alt={item.title} />
+                                <Image src={item.poster_path} className='cursor-pointer' alt={item.title} width={300} height={300} />
                             </div>
                             <div className='pt-3'>
-                                <div className='flex items-center gap-3 '>
-                                    <p className='product text-[#332427]'>{item.title}</p>
-                                    <p className='opacity-[0.6] product text-sm'>{item.overview}</p>
-                                </div>
-                                <p className='text-sm opacity-[0.6] pt-2'>{item.description}</p>
+                                <p className='product text-[#332427] text-sm'>
+                                    <span>{item.title}</span>{' '}
+                                    <span className='opacity-[0.6]'>{item.overview}</span>
+                                </p>
                                 <div className='flex items-center justify-between pt-4'>
                                     <p className='semibold text-[#332427] text-sm pt-2'>#{item.price}</p>
                                     <div className='flex items-center gap-3'>
-                                        <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-3 py-2 text-black font-bold text-xs cursor-pointer'>Add to cart</button>
-                                        {/* <Heart/> */}
+                                        <ShoppingCart/>
+                                        <Heart/>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
+                        </Link>
                     ))}
                 </div>
             </div>
-            <div className='bg-[#FFE8EC] w-full h-[150px] md:h-[400px] absolute top-[300px]'></div>
         </div>
     );
 };
 
-export default ProductItems;
+export default ProductThree;
