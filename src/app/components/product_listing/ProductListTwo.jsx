@@ -40,7 +40,7 @@ const ProductListTwo = () => {
 
     return (
         <div className='min-h-screen relative bg-[#fbf4f5]'>
-            <div className='px-10 py-10'>
+            <div className='px-10 '>
                 <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4'>
                     {ProductItemsDataTwo.map((item) => (
                         <div key={item.id} className='p-4'>

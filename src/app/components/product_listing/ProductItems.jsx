@@ -48,16 +48,15 @@ const ProductItems = () => {
     ];
 
     return (
-        <div className='min-h-screen relative '>
+        <div className='relative '>
             <div className='px-10 py-10 md:py-28 background'>
                 <p className='Login font-bold text-md md:text-lg md:pl-4 pb-2'>Body Care Best Seller</p>
                 <Link href='/cart'>
-                    
                         <div className='flex overflow-x-auto relative z-20'>
                             {ProductItemsData.map((item, index) => (
                                 <div
                                     key={item.id}
-                                    className={`p-4 min-w-[250px] ${index === 1 || index === 3 ? 'mt-8' : ''}`}
+                                    className={`pr-10 md:pr-8 min-w-[300px] ${index === 1 || index === 3 ? 'md:mt-8' : ''}`}
                                 >
                                     <div>
                                         <Image src={item.poster_path} className='cursor-pointer' alt={item.title} />
@@ -81,7 +80,7 @@ const ProductItems = () => {
                         </div>
                 </Link>
             </div>
-            <div className='bg-[#FFE8EC] w-full h-[150px] md:h-[400px] absolute top-[300px]'></div>
+            <div className='bg-[#FFE8EC] w-full h-[350px]  md:h-[400px] absolute top-[200px]  md:top-[300px]'></div>
         </div>
     );
 };

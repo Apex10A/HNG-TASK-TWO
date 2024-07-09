@@ -1,25 +1,30 @@
 /* Add this CSS to your global stylesheet */
 .custom-scrollbar {
-    overflow-y: hidden;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (min-width: 769px) {
+  .background {
+  background-image: url("../../../assets/Images/BubbleBreak.png");
+  width: 100%;
+  background-size: cover;
+  background-position: left; /* Added to move the background image to the left */
+  height: 100vh;
+}
   
-  .custom-scrollbar::-webkit-scrollbar {
-    height: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  .background{
-    background-image: url("../../../assets/Images/BubbleBreak.png");
-    width: 100%;
-    background-size: cover;
-    height: 100vh;
-  }
+}
