@@ -95,7 +95,7 @@ const Order = () => {
 
     <Link href='/delivery-details'>
     <div className='md:my-10 my-6 '>
-            <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-4 py-2 text-sm semibold border-[0.2px]  border-[#e3dadb]'>Confirm Order</button>
+            <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-10 md:px-20 py-2 text-sm semibold border-[0.2px]  border-[#e3dadb]'>Confirm Order</button>
         </div>
     </Link>
     

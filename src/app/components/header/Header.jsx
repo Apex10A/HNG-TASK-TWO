@@ -1,10 +1,17 @@
+"use client"
 import CartIcon from '@/assets/SVG/CartIcon';
 import LoveIcon from '@/assets/SVG/LoveIcon';
 import Menu from '@/assets/SVG/Menu';
 import SearchIcon from '@/assets/SVG/SearchIcon';
-import React from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <div className='py-8'>
       <div
@@ -16,7 +23,7 @@ const Header = () => {
           <li className='text-[#332427]'>Contacts</li>
         </div>
         <div className='flex md:hidden'>
-          <Menu />
+          <Menu onClick={toggleMenu} className='cursor-pointer' />
         </div>
         <div className='brand'>
           <p className='text-[#332427]'>
@@ -34,7 +41,7 @@ const Header = () => {
           <div>
             <CartIcon />
           </div>
-          <div className='hidden md:flex ml-8'> {/* Added more margin to the left */}
+          <div className='hidden md:flex ml-8'>
             <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm Login'>Login</button>
           </div>
         </div>
@@ -52,6 +59,15 @@ const Header = () => {
           <SearchIcon />
         </div>
       </div>
+
+      {menuOpen && (
+        <div className='absolute top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center pt-20'>
+          <li className='text-[#332427] py-2'>Home</li>
+          <li className='text-[#332427] py-2'>Products</li>
+          <li className='text-[#332427] py-2'>Contacts</li>
+          <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm mt-5 Login'>Login</button>
+        </div>
+      )}
     </div>
   );
 };

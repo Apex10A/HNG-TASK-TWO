@@ -54,7 +54,7 @@ const CartModal = ({ onClose }) => {
             <p className='text-sm text-gray-600 mb-4'>{product.description}</p>
             <div className='flex items-center md:justify-between justify-center gap-5 mb-4'>
               <button className='border-[1.2px] border-[#ffb6c1] rounded-3xl px-4 py-1'>- | {product.quantity} | +</button>
-              <p className='text-sm'>SubTotal: <span className='text-red-600 font-bold'>#{product.price}</span></p>
+              <p className='text-sm'>SubTotal: <span className='font-bold'>#{product.price}</span></p>
             </div>
           </div>
         </div>
@@ -75,9 +75,9 @@ const CartModal = ({ onClose }) => {
         </div>
 
         <div className='flex justify-between mt-8'>
-          <button className=' border-[0.2px] border-[#ffcfd7] bg-transparent text-[#ffcfd7] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
+          <button className=' border-[0.2px] border-[#ffcfd7] bg-transparent text-[#faafba] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
           <Link href='/order'>
-          <button className=' bg-[#ffb6c1] text-[#332427] px-4 py-2 rounded-3xl text-sm'>Proceed to checkout</button>
+          <button className=' bg-[#faafba] text-[#332427] px-10 md:px-20 py-2 rounded-3xl text-sm'>Proceed to checkout</button>
           </Link>
         </div>
       </div>

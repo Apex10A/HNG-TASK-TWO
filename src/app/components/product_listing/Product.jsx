@@ -4,6 +4,7 @@ import ProductItems from './ProductItems';
 import ProductListTwo from './ProductListTwo';
 import ProductThree from './ProductThree';
 import Footer from '../footer/Footer';
+import Black from '../blackGirl/Black';
 
 const Product = () => {
   return (
@@ -23,6 +24,7 @@ const Product = () => {
         <div>
             <ProductItems/>
             <ProductListTwo/>
+            <Black/>
             <ProductThree/>
             <Footer/>
         </div>
