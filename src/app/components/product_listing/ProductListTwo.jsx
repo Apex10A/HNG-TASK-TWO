@@ -41,24 +41,24 @@ const ProductListTwo = () => {
 
     return (
         <div className='min-h-screen relative bg-[#fbf4f5]'>
-            <div className='px-10 '>
-                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4'>
+            <div className='md:px-10 px-3'>
+                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 md:gap-4 gap-1'>
                     {ProductItemsDataTwo.map((item) => (
                         <Link href='/cart'>
-                        <div key={item.id} className='p-4'>
+                        <div key={item.id} className='p-4 flex flex-col'>
                             <div>
                                 <Image src={item.poster_path} className='cursor-pointer w-full' alt={item.title} />
                             </div>
                             <div className='pt-3'>
                                 <div className='flex items-center gap-3 '>
-                                <p className='product text-[#332427] md:text-sm text-lg'>
+                                <p className='product text-[#332427] md:text-sm text-md'>
                                     <span>{item.title}</span>{' '}
                                     <span className='opacity-[0.6]'>{item.overview}</span>
                                 </p>
                                 </div>
                                 <div className='flex items-center justify-between pt-4'>
-                                    <p className='semibold text-[#332427] md:text-sm text-md pt-2'>#{item.price}</p>
-                                    <div className='flex items-center gap-3'>
+                                    <p className='semibold text-[#332427] md:text-sm text-sm pt-2'>#{item.price}</p>
+                                    <div className='flex items-center md:gap-3 gap-2'>
                                         <ShoppingCart/>
                                         <Heart/>
                                     </div>
