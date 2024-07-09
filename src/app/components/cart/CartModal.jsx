@@ -26,7 +26,7 @@ const CartModal = ({ onClose }) => {
       onClick={onClose}
     >
       <div
-        className='bg-[#fefafb] md:w-2/3 lg:w-1/2 xl:w-2/5 rounded-lg px-5 h-full md:h-auto py-8 relative'
+        className='bg-[#fefafb] md:w-2/3 lg:w-1/2 xl:w-2/5 md:px-5 px-10 h-full md:h-auto md:py-8 py-10 relative '
         onClick={handleModalClick}
         style={{ zIndex: 999 }}
       >
@@ -43,10 +43,10 @@ const CartModal = ({ onClose }) => {
           <p className='text-center text-sm text-red-600 font-bold'>Please sign in for proper tracking of your product.</p>
         </div>
 
-        <div className='md:flex items-center justify-center'>
+        <div className='md:flex items-center justify-center '>
           <div className='md:w-1/3 md:mr-6'>
             <Image src={product.imageUrl} alt={product.name} className='rounded-lg hidden md:flex' width={200} height={200} />
-            <Image src={MobileCart} alt="Mobile Cart Image" className="max-w-sm mx-auto md:hidden flex" />
+            <Image src={MobileCart} alt="Mobile Cart Image" className=" mx-auto md:hidden flex" />
             
           </div>
           <div className='md:flex-1 mt-3 md:mt-0'>

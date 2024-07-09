@@ -29,8 +29,8 @@ const Order = () => {
                 <p className='semibold'>Please enter your correct delivery details</p>
             </div>
             <div className=''>
-                <div className='flex items-center gap-10'>
-                <div className='w-full'>
+                <div className='md:flex items-center gap-10'>
+                <div className='w-full mb-4 md:mb-0'>
                 <input 
     type="text" 
     name="" 
@@ -46,12 +46,16 @@ const Order = () => {
                      />
                 </div>
                 </div>
-                <div className='flex my-5 items-center gap-10'>
-
-                <NigerianStatesDropdown/>
+                <div className='flex my-5 items-center gap-3 md:gap-8'>
 
                 <div className='w-full'>
-                    <input type="text" name="" placeholder='Phone number' id=""
+                    <input type="text" name="" placeholder='Select state' id=""
+                    className='border-[0.2px] border-[#d0cdcd] w-full rounded-xl px-3 py-4 text-sm placeholder:text-[#4c3f42]'
+                     />
+                </div>
+
+                <div className='w-full'>
+                    <input type="text" name="" placeholder='Select city' id=""
                     className='border-[0.2px] border-[#d0cdcd] w-full rounded-xl px-3 py-4 text-sm placeholder:text-[#4c3f42]'
                      />
                 </div>
@@ -90,8 +94,8 @@ const Order = () => {
             </div>
 
     <Link href='/delivery-details'>
-    <div className='md:my-10 my-6'>
-            <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-4 py-2 text-sm semibold border-[0.2px] border-[#e3dadb]'>Confirm Order</button>
+    <div className='md:my-10 my-6 '>
+            <button className='bg-[#ffb6c1] text-[#332427] rounded-3xl px-4 py-2 text-sm semibold border-[0.2px]  border-[#e3dadb]'>Confirm Order</button>
         </div>
     </Link>
     

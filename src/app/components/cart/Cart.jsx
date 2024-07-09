@@ -127,7 +127,7 @@ const Cart = () => {
       </div>
 
       {showModal && (
-        <div className="absolute md:fixed top-0 bottom-0 left-0 w-full h-full  md:bg-black md:bg-opacity-50 z-50 flex items-center justify-center">
+        <div className="fixed top-0 left-0 w-full h-full md:bg-black md:bg-opacity-50 z-50 flex items-center justify-center">
           <CartModal onClose={handleCloseModal} />
         </div>
       )}
