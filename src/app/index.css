@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Calistra';
+    src: url('../assets/fonts/calesta-font-1705371611-0/Calesta-BF65a06711c7595.ttf') format('truetype');
+    font-weight: medium;
+  }
+  @font-face {
+    font-family: 'Nominal';
+    src: url('../assets/fonts/nomina-font-family-1705370983-0/NominaTrial-Medium-BF65a5e1533fa86.otf') format('truetype');
+    font-weight: medium;
+  }
+  @font-face {
+    font-family: 'Nominal';
+    src: url('../assets/fonts/nomina-font-family-1705370983-0/NominaTrial-Regular-BF65a5e1536119d.otf') format('truetype');
+    font-weight: 200;
+  }
+  @font-face {
+    font-family: 'Nominal';
+    src: url('../assets/fonts/nomina-font-family-1705370983-0/NominaTrial-Semibold-BF65a5e15360128.otf') format('truetype');
+    font-weight: 600;
+  }
+  @font-face {
+    font-family: 'Nominal';
+    src: url('../assets/fonts/nomina-font-family-1705370983-0/NominaTrial-Bold-BF65a5e1533b23c.otf') format('truetype');
+    font-weight: bold;
+  }
+  
+  h1{
+    font-family: 'Calistra', sans-serif;
+    font-size: 119px;
+    font-weight: 400;
+  }
+  li, p{
+    font-family: 'Nominal', sans-serif;
+    font-weight: 200;
+  }
+  .product{
+    font-family: 'Calistra', sans-serif;
+    font-weight: 400;
+  }
+  .brand{
+    font-family: 'Calistra', sans-serif;
+    font-weight: 400;
+  }
+  .Login{
+    font-family: 'Nominal', sans-serif;
+  }
+  .paragraph{
+    font-family: 'Nominal', sans-serif;
+    font-weight: 200;
+  }
+  
+  .semibold{
+    font-family: 'Nominal', sans-serif;
+    font-weight: 600;
+  }
+  .category{
+    font-family: 'Nominal', sans-serif;
+    font-weight: bold;
+  }
+  @media(min-width: 768px) {
+    .header{
+      box-shadow: 0 4px 6px rgba(222, 140, 153, 0.5);
+   }
+  }
+
+  
