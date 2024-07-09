@@ -3,7 +3,7 @@ import Image from 'next/image';
 import FaceCard from "../../../assets/Images/FaceCard.png";
 import BlackCombo from "../../../assets/Images/BlackCombo.png";
 
-const BlackGirl = () => {
+const blackGirl = () => {
   return (
     <div className='flex justify-between items-center md:mx-14'>
       <div className='h-full'>
@@ -23,4 +23,4 @@ const BlackGirl = () => {
   );
 };
 
-export default BlackGirl;
+export default blackGirl;

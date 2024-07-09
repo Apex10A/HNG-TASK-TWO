@@ -3,7 +3,7 @@ import Header from '../header/Header'
 import ProductItems from './ProductItems'
 import ProductListTwo from './ProductListTwo'
 import ProductThree from './ProduuctThree'
-import BlackGirl from '../blackGirl/BlackGirl'
+import BlackGirl from '../blackGirl/blackGirl'
 import Footer from '../footer/Footer'
 
 
