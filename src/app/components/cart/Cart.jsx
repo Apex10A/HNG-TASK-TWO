@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState } from "react";
 import HeaderTwo from "../header/HeaderTwo";
 import Image from "next/image";
@@ -16,6 +16,10 @@ const Cart = () => {
 
   const handleAddToCart = () => {
     setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -123,14 +127,13 @@ const Cart = () => {
       </div>
 
       {showModal && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50">
-          <CartModal />
+        <div className="absolute md:fixed top-0 bottom-0 left-0 w-full h-full  md:bg-black md:bg-opacity-50 z-50 flex items-center justify-center">
+          <CartModal onClose={handleCloseModal} />
         </div>
       )}
 
-      {/* Add to Cart Button, Cart Icon, and Heart Icon for mobile */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[#fbeef0] md:hidden flex items-center justify-between py-6 px-4 shadow-lg z-50 border-[0.2px] border-[#DE8C99]">
-        <div className="flex w-1/4 ">
+      <div className="fixed bottom-0 left-0 right-0 bg-[#fbeef0] md:hidden flex items-center justify-between py-6 px-4 shadow-lg z-60 border-[0.2px] border-[#DE8C99]">
+        <div className="flex w-1/4">
           <Heart className="text-[#ffb6c1] text-2xl" />
         </div>
         <div className="w-2/4">

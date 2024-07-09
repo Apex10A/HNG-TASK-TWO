@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import CartImage from "../../../assets/Images/CartImage.png";
 import Link from 'next/link';
+import MobileCart from "../../../assets/Images/MobileCart.png";
 import CloseIcon from "../../../assets/SVG/Close.jsx";
 
 const CartModal = ({ onClose }) => {
@@ -21,12 +22,13 @@ const CartModal = ({ onClose }) => {
 
   return (
     <div
-      className='md:fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center'
+      className='absolute md:fixed md:top-0 md:left-0 w-full h-full bg-black bg-opacity-50 z-99 flex items-center justify-center'
       onClick={onClose}
     >
       <div
         className='bg-[#fefafb] md:w-2/3 lg:w-1/2 xl:w-2/5 rounded-lg px-5 h-full md:h-auto py-8 relative'
         onClick={handleModalClick}
+        style={{ zIndex: 999 }}
       >
         {/* Close Modal Icon */}
         <button
@@ -38,17 +40,19 @@ const CartModal = ({ onClose }) => {
 
         <div className='mb-8'>
           <p className='text-center text-sm mb-2 text-gray-700'>Product added to cart successfully!</p>
-          <p className='text-center text-sm text-red-600'>Please sign in for proper tracking of your product.</p>
+          <p className='text-center text-sm text-red-600 font-bold'>Please sign in for proper tracking of your product.</p>
         </div>
 
-        <div className='flex items-center justify-center'>
-          <div className='w-1/3 mr-6'>
-            <Image src={product.imageUrl} alt={product.name} className='rounded-lg' width={200} height={200} />
+        <div className='md:flex items-center justify-center'>
+          <div className='md:w-1/3 md:mr-6'>
+            <Image src={product.imageUrl} alt={product.name} className='rounded-lg hidden md:flex' width={200} height={200} />
+            <Image src={MobileCart} alt="Mobile Cart Image" className="max-w-sm mx-auto md:hidden flex" />
+            
           </div>
-          <div className='flex-1'>
+          <div className='md:flex-1 mt-3 md:mt-0'>
             <h1 className='text-xl mb-2'>{product.name}</h1>
             <p className='text-sm text-gray-600 mb-4'>{product.description}</p>
-            <div className='flex items-center justify-between mb-4'>
+            <div className='flex items-center md:justify-between justify-center gap-5 mb-4'>
               <button className='border-[1.2px] border-[#ffb6c1] rounded-3xl px-4 py-1'>- | {product.quantity} | +</button>
               <p className='text-sm'>SubTotal: <span className='text-red-600 font-bold'>#{product.price}</span></p>
             </div>
@@ -71,9 +75,9 @@ const CartModal = ({ onClose }) => {
         </div>
 
         <div className='flex justify-between mt-8'>
-          <button className='w-full border-[0.2px] border-[#ffcfd7] bg-transparent text-[#ffcfd7] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
+          <button className=' border-[0.2px] border-[#ffcfd7] bg-transparent text-[#ffcfd7] px-4 py-2 rounded-3xl text-sm'>Continue shopping</button>
           <Link href='/order'>
-          <button className='w-full bg-[#ffb6c1] text-[#332427] px-4 py-2 rounded-3xl text-sm'>Proceed to checkout</button>
+          <button className=' bg-[#ffb6c1] text-[#332427] px-4 py-2 rounded-3xl text-sm'>Proceed to checkout</button>
           </Link>
         </div>
       </div>
