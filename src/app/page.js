@@ -8,7 +8,7 @@ import Order from "./components/orderConfirmation/Order";
 import Details from "./components/deliveryDetails/Details";
 import Payment from "./components/deliveryDetails/Payment";
 import PaymentSuccessful from "./components/deliveryDetails/PaymentSuccessful";
-import BlackGirl from "./components/blackGirl/blackGirl";
+// import BlackGirl from "./components/blackGirl/blackGirl";
 
 export default function Home() {
   return (
