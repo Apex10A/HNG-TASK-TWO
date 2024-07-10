@@ -8,7 +8,7 @@ const Details = () => {
       <div>
         <HeaderTwo/>
       </div>
-      <div className='flex flex-col items-center justify-center bg-[#fbf4f5] min-h-screen px-5 md:px-14 py-10'>
+      <div className='flex flex-col items-center justify-center bg-[#fbf4f5] px-5 md:px-14 py-10'>
         <div className='flex items-center gap-10 justify-between w-[95%]'>
           <div className='hidden md:flex gap-5 items-center'>
             <p className='semibold text-sm'>Payment plan {'>'} </p>

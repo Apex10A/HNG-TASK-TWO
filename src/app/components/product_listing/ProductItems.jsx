@@ -84,14 +84,9 @@ const ProductItems = () => {
                                             >
                                                 Add to cart
                                             </motion.button>
-                                            <motion.div
-                                                onClick={() => handleHeartClick(item.id)}
-                                                className={`cursor-pointer ${clickedHeart === item.id ? 'bg-red-500' : ''}`}
-                                                animate={{ rotate: clickedHeart === item.id ? [0, 15, -15, 0] : 0 }}
-                                                transition={{ type: 'spring', stiffness: 300 }}
-                                            >
+                                            
                                                 <Heart />
-                                            </motion.div>
+
                                         </div>
                                     </div>
                                 </div>

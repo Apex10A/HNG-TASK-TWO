@@ -9,7 +9,7 @@ const Order = () => {
       <div>
         <HeaderTwo/>
       </div>
-      <div className='w-full min-h-screen bg-[#fbf4f5] flex flex-col items-center justify-center px-5 md:px-14 py-10'>
+      <div className='w-full bg-[#fbf4f5] flex flex-col items-center justify-center px-5 md:px-14 py-10'>
       <div className='flex items-center gap-10 justify-between w-[95%]'>
       <div className='hidden md:flex gap-5 items-center '>
         <p className='semibold text-sm'>Check out {'>'} </p>

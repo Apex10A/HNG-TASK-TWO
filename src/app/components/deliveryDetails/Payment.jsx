@@ -23,7 +23,7 @@ const Payment = () => {
         <div>
           <HeaderThree/>
         </div>
-        <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
+        <div className='flex flex-col items-center py-10 px-5 md:px-10 justify-center bg-[#fbf4f5] w-full'>
         <div className='max-w-xl text-center flex flex-col items-center justify-center'>
           <Image src={SuccessTick} alt='' className='mx-auto '/>
           <p className='pt-6 pb-5 semibold'>Payment received successfully</p>
@@ -86,7 +86,7 @@ const Payment = () => {
       <div>
         <HeaderThree />
       </div>
-      <div className='flex flex-col items-center py-10 px-5 md:px-10 min-h-screen justify-center bg-[#fbf4f5] w-full'>
+      <div className='flex flex-col items-center py-10 px-5 md:px-10 justify-center bg-[#fbf4f5] w-full'>
       <div className='max-w-2xl text-center flex flex-col items-center justify-center'>
         <div>
           <p className='pt-6 pb-5 semibold'>Kindly make payment for your goods</p>

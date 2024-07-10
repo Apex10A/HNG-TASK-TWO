@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CartImage from "../../../assets/Images/CartImage.png";
 import Link from 'next/link';
 import MobileCart from "../../../assets/Images/MobileCart.png";
+import ArrowPointDown from '@/assets/SVG/ArrowPointDown';
 import CloseIcon from "../../../assets/SVG/Close.jsx";
 
 const CartModal = ({ onClose }) => {
@@ -52,25 +53,29 @@ const CartModal = ({ onClose }) => {
           <div className='md:flex-1 mt-3 md:mt-0'>
             <h1 className='text-xl mb-2'>{product.name}</h1>
             <p className='text-sm text-gray-600 mb-4'>{product.description}</p>
-            <div className='flex items-center md:justify-between justify-center gap-5 mb-4'>
-              <button className='border-[1.2px] border-[#ffb6c1] rounded-3xl px-4 py-1'>- | {product.quantity} | +</button>
+            <div className='flex items-center justify-between gap-5 mb-4'>
+            <div className="border-[1.2px] border-[#ffb6c1] bg-[#fef3f5] rounded-3xl flex justify-between items-center px-4 py-2">
+                <button className="px-2">- </button>
+                <span className="px-4">1</span>
+                <button className="px-2">+</button>
+              </div>
               <p className='text-sm'>SubTotal: <span className='font-bold'>#{product.price}</span></p>
             </div>
           </div>
         </div>
 
-        <div className='border-t border-gray-300 pt-4'>
-          <div className='flex justify-between items-center mt-6'>
+        <div className=' border-gray-300 pt-2'>
+          <div className='flex justify-between items-center mt-2 mb-2'>
             <p className='text-sm font-medium'>Cart Total</p>
-            <div className='w-1/4 h-[0.5px] bg-gray-300'></div>
           </div>
-          <div className='flex justify-between items-center mt-4'>
+          <div className='w-full h-[1px] bg-black'></div>
+          <div className='flex justify-between items-center mt-4 bg-[#fee1e5] px-3 py-3 border-b-black'>
             <p className='text-sm'>SubTotal</p>
             <p className='text-sm'>#{product.price}</p>
           </div>
-          <div className='flex justify-between items-center mt-4'>
+          <div className='flex justify-between items-center pt-4 bg-[#fff] shadow-md py-2 px-3'>
             <p className='text-sm'>Order Summary</p>
-            <p className='text-sm'>Dropdown icon</p>
+            <ArrowPointDown/>
           </div>
         </div>
 
