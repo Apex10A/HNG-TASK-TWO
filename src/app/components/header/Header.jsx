@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import CartIcon from '@/assets/SVG/CartIcon';
 import LoveIcon from '@/assets/SVG/LoveIcon';
 import Menu from '@/assets/SVG/Menu';
@@ -14,7 +14,9 @@ const Header = ({ cartCount }) => {
 
   return (
     <div className='py-8'>
-      <div className='text-white md:max-w-[85%] flex items-center justify-between mx-auto md:rounded-[45px] py-2 px-10 header'>
+      <div
+        className=' text-white md:max-w-[85%] flex items-center justify-between mx-auto md:rounded-[45px] py-2 px-10 header'
+      >
         <div className='md:flex hidden items-center list-none gap-4'>
           <li className='text-[#332427]'>Home</li>
           <li className='text-[#332427]'>Products</li>
@@ -39,15 +41,13 @@ const Header = ({ cartCount }) => {
           <div className='relative'>
             <CartIcon />
             {cartCount > 0 && (
-              <span className='absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center'>
+              <span className='absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1'>
                 {cartCount}
               </span>
             )}
           </div>
           <div className='hidden md:flex ml-8'>
-            <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm Login'>
-              Login
-            </button>
+            <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm Login'>Login</button>
           </div>
         </div>
       </div>
@@ -70,9 +70,7 @@ const Header = ({ cartCount }) => {
           <li className='text-[#332427] py-2'>Home</li>
           <li className='text-[#332427] py-2'>Products</li>
           <li className='text-[#332427] py-2'>Contacts</li>
-          <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm mt-5 Login'>
-            Login
-          </button>
+          <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm Login'>Login</button>
         </div>
       )}
     </div>

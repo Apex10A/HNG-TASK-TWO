@@ -24,7 +24,7 @@ const Product = () => {
 
   const handleAddToCart = (product) => {
     setCart(prevCart => [...prevCart, product]);
-    setNotification(`${product.title} successfully added to cart`);
+    setNotification(`${product.name} successfully added to cart`);
     setTimeout(() => {
       setNotification('');
     }, 3000); // Hide notification after 3 seconds

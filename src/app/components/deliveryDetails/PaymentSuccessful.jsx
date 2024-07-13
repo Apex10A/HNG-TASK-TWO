@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import SuccessTick from "../../../assets/Images/SuccesTick.png"
 // import CopyIcon from "../../../assets/Images/CopyIcon.png"
 import CopyIcon from "../../../assets/SVG/CopyIcon.jsx"
