@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import Header from '../header/Header';
 import ProductItems from './ProductItems';
@@ -15,15 +15,25 @@ const buttonVariants = {
 
 const Product = () => {
   const [activeButton, setActiveButton] = useState('');
+  const [cart, setCart] = useState([]);
+  const [notification, setNotification] = useState('');
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
   };
 
+  const handleAddToCart = (product) => {
+    setCart(prevCart => [...prevCart, product]);
+    setNotification(`${product.title} successfully added to cart`);
+    setTimeout(() => {
+      setNotification('');
+    }, 3000); // Hide notification after 3 seconds
+  };
+
   return (
     <div className='bg-[#fbf4f5] min-h-screen'>
       <div>
-        <Header />
+        <Header cartCount={cart.length} />
       </div>
       <div className='px-5 md:px-10 py-8'>
         <motion.h1
@@ -53,12 +63,17 @@ const Product = () => {
         </div>
       </div>
       <div>
-        <ProductItems activeButton={activeButton} />
-        <ProductListTwo />
+        <ProductItems activeButton={activeButton} handleAddToCart={handleAddToCart} />
+        <ProductListTwo handleAddToCart={handleAddToCart} />
         <Black />
         <ProductThree />
         <Footer />
       </div>
+      {notification && (
+        <div className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-lg shadow-lg z-50">
+          {notification}
+        </div>
+      )}
     </div>
   );
 };
