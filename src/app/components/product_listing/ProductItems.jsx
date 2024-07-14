@@ -11,6 +11,7 @@ const ProductItems = ({ activeButton, handleAddToCart }) => {
     const [clickedHeart, setClickedHeart] = useState(null);
     const [products, setProducts] = useState([]);
 
+    
     useEffect(() => {
         const fetchProducts = async () => {
             try {

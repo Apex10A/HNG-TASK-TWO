@@ -6,10 +6,12 @@ import Heart from "@/assets/SVG/Heart";
 
 const ProductInfo = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
+  
 
   const handleAddToCart = () => {
     setShowModal(true);
   };
+  console.log(products)
 
   const handleCloseModal = () => {
     setShowModal(false);
