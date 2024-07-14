@@ -13,6 +13,7 @@ const buttonVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
+
 const Product = () => {
   const [activeButton, setActiveButton] = useState('');
   const [cart, setCart] = useState([]);
@@ -66,7 +67,7 @@ const Product = () => {
         <ProductItems activeButton={activeButton} handleAddToCart={handleAddToCart} />
         <ProductListTwo handleAddToCart={handleAddToCart} />
         <Black />
-        <ProductThree />
+        <ProductThree  handleAddToCart={handleAddToCart}/>
         <Footer />
       </div>
       {notification && (

@@ -14,7 +14,7 @@ const ProductListTwo = ({ handleAddToCart }) => {
         const fetchProducts = async () => {
             try {
                 const response = await axios.get('/api/products'); // Replace with your actual API URL
-                const items = response.data.items.slice(1, 25); // Get the first to the twenty-fourth product
+                const items = response.data.items.slice(4, 30); // Get the first to the twenty-fourth product
                 setProducts(items);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -31,7 +31,7 @@ const ProductListTwo = ({ handleAddToCart }) => {
                     {products.map((item) => (
                         <div key={item.id} className='p-4 flex flex-col'>
                             <div>
-                                <Image src={ImageOne} className='cursor-pointer w-full' alt={item.name} />
+                                <Image src={`https://api.timbu.cloud/images/${item?.photos[0]?.url}`} alt={item.name}  width={250} height={250} className='cursor-pointer w-full' />
                             </div>
                             <div className='pt-3'>
                                 <div className='flex items-center gap-3'>
@@ -43,9 +43,10 @@ const ProductListTwo = ({ handleAddToCart }) => {
                                 <div className='flex items-center justify-between pt-4'>
                                     <p className='semibold text-[#332427] md:text-sm text-sm pt-2'>#{item.price}</p>
                                     <div className='flex items-center md:gap-3 gap-2'>
-                                        <ShoppingCart onClick={() => handleAddToCart(item)} className="cursor-pointer" />
+                                        <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-3 py-2 text-black font-bold text-xs cursor-pointer' onClick={() => handleAddToCart(item)}>Add to cart</button>
                                         <Heart />
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

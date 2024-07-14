@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn.timbu.cloud'],
+    domains: ['api.timbu.cloud'],
   },
   async rewrites() {
     return [
