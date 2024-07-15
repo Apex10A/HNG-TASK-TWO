@@ -10,12 +10,11 @@ import "./ProductItems.css";
 const ProductItems = ({ activeButton, handleAddToCart }) => {
     const [clickedHeart, setClickedHeart] = useState(null);
     const [products, setProducts] = useState([]);
-
     
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('/api/products');
+                const response = await axios.get('https://timbu-get-all-products.reavdev.workers.dev/products?organization_id=80aafd82afd5454c965591bb966f4011&reverse_sort=false&size=30&Appid=6T1T1ZB0FSJSWC1&Apikey=cabe8777a2e643ea8559e4cfe84ce1ac20240712141543542147');
                 setProducts(response.data.items);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -24,7 +23,7 @@ const ProductItems = ({ activeButton, handleAddToCart }) => {
 
         fetchProducts();
     }, []);
-
+console.log(products)
     const handleHeartClick = (id) => {
         setClickedHeart(clickedHeart === id ? null : id);
     };
@@ -41,14 +40,14 @@ const ProductItems = ({ activeButton, handleAddToCart }) => {
                             whileHover={{ y: 0 }}
                             initial={{ y: index === 1 || index === 3 ? 8 : 0 }}
                         >
-                            <Link href={`/product/${item.url_slug}`}>
-                     
+                            <Link href={`/product/${item.id}`}>
+                           
                                     <div>
                                         <Image src={`https://api.timbu.cloud/images/${item?.photos[0]?.url}`} alt={item.name} width={250} height={250} />
                                     </div>
                                     <div className='pt-3'>
                                         <div className='flex items-center gap-3'>
-                                            <p className='product text-[#332427]'>{item.name}</p>
+                                            <p className='product text-[#332427]'>{item?.name}</p>
                                         </div>
                                         <div className='flex items-center justify-between pt-4'>
                                             <p className='semibold text-[#332427] text-sm pt-2'>#{item.price}</p>
@@ -63,11 +62,16 @@ const ProductItems = ({ activeButton, handleAddToCart }) => {
                                                 >
                                                     Add to cart
                                                 </motion.button>
-                                                <Heart />
+                                                <button onClick={(e) => {
+                                                    e.preventDefault(); // Prevents the Link click
+                                                    handleHeartClick(item.id);
+                                                }}>
+                                                    <Heart className={clickedHeart === item.id ? 'text-red-500' : ''} />
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                        
+                            
                             </Link>
                         </motion.div>
                     ))}
