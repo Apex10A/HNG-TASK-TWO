@@ -2,13 +2,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Heart from "@/assets/SVG/Heart";
-import CartContext from "@/app/components/cart/CartContext";
+import useCartStore from "@/app/components/cart/CarStore";
 import Image from "next/image";
 import axios from "axios";
+import "../../../globals.css"
 // import MobileCart from "../../../assets/Images/MobileCart.png";
 import CartModal from "@/app/components/cart/CartModal";
 import CartIcon from "@/assets/SVG/CartIcon";
 import { useContext } from "react";
+
 // import { TbCurrencyNaira } from "react-icons/tb";
 // import GoldStars from "@/app/components/GoldStars";
 
@@ -19,7 +21,7 @@ const ProductDetailContent = ({ productId }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCartStore(); 
  
 
   useEffect(() => {
@@ -96,20 +98,20 @@ const ProductDetailContent = ({ productId }) => {
 
         <div>
           <div className="pt-4 px-5">
-            <h1 className="text-2xl pb-5">{product?.name} <span className="opacity-[0.7]">{product?.extra_infos?.[4].value}</span></h1>
-            <p className="pb-4 opacity-[0.7] text-sm">{product?.extra_infos?.[3].value}</p>
+            <h1 className="text-2xl pb-5">{product?.name} <span className="opacity-[0.7]">{product?.extra_infos?.[0].value}</span></h1>
+            <p className="pb-4 opacity-[0.7] text-sm">{product?.extra_infos?.[1].value}</p>
             <p className="font-extrabold">#15,000</p>
           </div>
           <div className="max-w-xl py-6 px-5">
             <p className="leading-[30px] pb-3 opacity-[0.9] text-sm">
               {product?.description}
             </p>
-            {/* <ul>
-            <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[0].value}</li>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[1].value}</li>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[2].value}</li>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[5].value}</li>
-            </ul> */}
+            <ul>
+            <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Exfoliation: Glycolic acid gently removes dead skin cells, promoting cell turnover and revealing fresher, smoother skin.</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Hydration: Lactic acid hydrates and softens the skin, improving texture and tone.</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">pH Balanced: Formulated with a pH of 5.5 to maintain your skin’s natural barrier and prevent irritation.</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Anti-Aging: Reduces the appearance of fine lines, wrinkles, and hyperpigmentation for a more youthful look.</li>
+            </ul>
             <div className="md:flex hidden items-center gap-7 py-6 w-full">
               <div className="border-[1.2px] border-[#ffb6c1] rounded-3xl flex justify-between items-center px-4 py-2">
                 <button className="px-2">-</button>

@@ -1,10 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import useCartStore from './CarStore.js';
 import ArrowPointDown from '@/assets/SVG/ArrowPointDown';
 import CloseIcon from "../../../assets/SVG/Close.jsx";
 
-const CartModal = ({ cart = [], onClose }) => {
+const CartModal = ({ onClose }) => {
+  const { cart, removeFromCart } = useCartStore();
   const handleModalClick = (e) => {
     // Prevent closing modal when clicking inside the modal content
     e.stopPropagation();
@@ -17,6 +19,7 @@ const CartModal = ({ cart = [], onClose }) => {
       className='absolute md:fixed md:top-0 md:left-0 w-full h-full bg-black bg-opacity-50 z-99 flex items-center justify-center'
       onClick={onClose}
     >
+      
       <div
         className='bg-[#fefafb] md:w-2/3 lg:w-1/2 xl:w-2/5 md:px-5 px-10 h-full md:h-auto md:py-8 py-10 relative '
         onClick={handleModalClick}
@@ -33,6 +36,7 @@ const CartModal = ({ cart = [], onClose }) => {
         <div className='mb-8'>
           <p className='text-center text-sm mb-2 text-gray-700'>Products in your cart:</p>
         </div>
+       
 
         {cart.length === 0 ? (
           <p className='text-center'>Your cart is empty.</p>
@@ -44,7 +48,7 @@ const CartModal = ({ cart = [], onClose }) => {
                 <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className='mx-auto md:hidden flex' width={200} height={200} />
               </div>
               <div className='md:flex-1 mt-3 md:mt-0'>
-                <h1 className='text-xl mb-2'>{product.name}</h1>
+                <h1 className='text-xl mb-2'>{product?.name}</h1>
                 <p className='text-sm text-gray-600 mb-4'>{product.overview}</p>
                 <div className='flex items-center justify-between gap-5 mb-4'>
                   <div className="border-[1.2px] border-[#ffb6c1] bg-[#fef3f5] rounded-3xl flex justify-between items-center px-4 py-2">

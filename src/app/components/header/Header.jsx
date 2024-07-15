@@ -37,14 +37,16 @@ const Header = ({ cartCount }) => {
             <LoveIcon />
           </div>
           <div className='relative'>
-             
-                <CartIcon onClick={handleAddToCart}/>
+            <Link href='/cart'> {/* Update with the correct path to your cart component */}
+              <a>
+                <CartIcon />
                 {cartCount > 0 && (
                   <span className='absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs px-1'>
                     {cartCount}
                   </span>
                 )}
-             =
+              </a>
+            </Link>
           </div>
           <div className='hidden md:flex ml-8'>
             <button className='bg-[#FFB6C1] rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm Login'>Login</button>
