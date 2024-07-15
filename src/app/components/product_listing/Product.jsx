@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState } from 'react';
 import Header from '../header/Header';
 import ProductItems from './ProductItems';
@@ -12,7 +12,6 @@ const buttonVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
-
 
 const Product = () => {
   const [activeButton, setActiveButton] = useState('');
@@ -67,7 +66,7 @@ const Product = () => {
         <ProductItems activeButton={activeButton} handleAddToCart={handleAddToCart} />
         <ProductListTwo handleAddToCart={handleAddToCart} />
         <Black />
-        <ProductThree  handleAddToCart={handleAddToCart}/>
+        <ProductThree handleAddToCart={handleAddToCart} />
         <Footer />
       </div>
       {notification && (

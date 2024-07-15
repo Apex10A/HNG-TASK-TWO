@@ -2,11 +2,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import Heart from "@/assets/SVG/Heart";
+import CartContext from "@/app/components/cart/CartContext";
 import Image from "next/image";
 import axios from "axios";
 // import MobileCart from "../../../assets/Images/MobileCart.png";
 import CartModal from "@/app/components/cart/CartModal";
 import CartIcon from "@/assets/SVG/CartIcon";
+import { useContext } from "react";
 // import { TbCurrencyNaira } from "react-icons/tb";
 // import GoldStars from "@/app/components/GoldStars";
 
@@ -16,6 +18,9 @@ const ProductDetailContent = ({ productId }) => {
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { addToCart } = useContext(CartContext);
+ 
 
   useEffect(() => {
     if (productId) {
@@ -37,6 +42,7 @@ const ProductDetailContent = ({ productId }) => {
   console.log(product)
 
   const handleAddToCart = () => {
+    addToCart(product); // Assuming `product` is defined in your component
     setShowModal(true);
   };
 
@@ -70,7 +76,7 @@ const ProductDetailContent = ({ productId }) => {
             <div className="flex items-center mx-auto justify-center mt-3">
               <div>
                 <div className="max-w-[80%] mx-auto">
-                  {/* <Image src={RetinolCartImage} alt="Retinol Cart Image" /> */}
+                <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt="Retinol Cart Image" width={250} height={250}/>
                 </div>
                 <div>
                   <p className="text-sm text-center pt-2">Retinol <span className="opacity-[0.7]">Bodycare Lotion</span></p>
@@ -78,7 +84,7 @@ const ProductDetailContent = ({ productId }) => {
               </div>
               <div className="flex flex-col items-center justify-center mx-auto">
                 <div className="max-w-[80%] mx-auto">
-                  {/* <Image src={BronzeGoddessCartImage} alt="Bronze Goddess Cart Image" /> */}
+                  <Image src={`https://api.timbu.cloud/images/${product?.photos[1]?.url}`} alt="Bronze Goddess Cart Image" width={250} height={250}/>
                 </div>
                 <div>
                   <p className="text-sm text-left pt-2">Bronze Goddess <span className="opacity-[0.7]">Bodycare Lotion</span></p>
@@ -90,20 +96,20 @@ const ProductDetailContent = ({ productId }) => {
 
         <div>
           <div className="pt-4 px-5">
-            <h1 className="text-2xl pb-5">{product?.name} <span className="opacity-[0.7]">Body Moisturizer</span></h1>
-            <p className="pb-4 opacity-[0.7] text-sm">Glycolic and Lactic Acid Body Moisturizer</p>
+            <h1 className="text-2xl pb-5">{product?.name} <span className="opacity-[0.7]">{product?.extra_infos?.[4].value}</span></h1>
+            <p className="pb-4 opacity-[0.7] text-sm">{product?.extra_infos?.[3].value}</p>
             <p className="font-extrabold">#15,000</p>
           </div>
           <div className="max-w-xl py-6 px-5">
             <p className="leading-[30px] pb-3 opacity-[0.9] text-sm">
-              Medix 5.5 Glycolic and Lactic Acid Body Moisturizer is dermatologist-tested and formulated to provide maximum benefits without compromising on gentleness. Perfect for all skin types, it’s your go-to solution for achieving healthier, glowing skin.
+              {product?.description}
             </p>
-            <ul>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Exfoliation: Glycolic acid gently removes dead skin cells, promoting cell turnover and revealing fresher, smoother skin.</li>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Hydration: Lactic acid hydrates and softens the skin, improving texture and tone.</li>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">pH Balanced: Formulated with a pH of 5.5 to maintain your skin’s natural barrier and prevent irritation.</li>
-              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Anti-Aging: Reduces the appearance of fine lines, wrinkles, and hyperpigmentation for a more youthful look.</li>
-            </ul>
+            {/* <ul>
+            <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[0].value}</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[1].value}</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[2].value}</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">{product?.extra_infos?.[5].value}</li>
+            </ul> */}
             <div className="md:flex hidden items-center gap-7 py-6 w-full">
               <div className="border-[1.2px] border-[#ffb6c1] rounded-3xl flex justify-between items-center px-4 py-2">
                 <button className="px-2">-</button>
@@ -140,7 +146,7 @@ const ProductDetailContent = ({ productId }) => {
         <div className="flex items-center mx-auto justify-center mt-3">
           <div>
             <div className="max-w-[80%] mx-auto">
-              <Image src={`https://api.timbu.cloud/images/${product?.photos?.url}`} alt="Retinol Cart Image" width={250} height={250}/>
+              <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt="Retinol Cart Image" width={250} height={250}/>
             </div>
             <div>
               <p className="text-xs text-center pt-2">Retinol <span className="opacity-[0.7] text-xs">Bodycare Lotion</span></p>
@@ -148,7 +154,7 @@ const ProductDetailContent = ({ productId }) => {
           </div>
           <div className="flex flex-col items-center justify-center mx-auto">
             <div className="max-w-[80%] mx-auto">
-              {/* <Image src={BronzeGoddessCartImage} alt="Bronze Goddess Cart Image" /> */}
+              <Image src={`https://api.timbu.cloud/images/${product?.photos[1]?.url}`} alt="Bronze Goddess Cart Image" width={250} height={250} />
             </div>
             <div>
               <p className="text-xs text-left pt-2">Bronze Goddess <span className="opacity-[0.7] text-xs">Bodycare Lotion</span></p>
