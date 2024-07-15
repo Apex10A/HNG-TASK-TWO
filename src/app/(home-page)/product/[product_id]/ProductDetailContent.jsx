@@ -1,10 +1,12 @@
 
 "use client";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import Image from "next/image";
-import CartModal from "@/app/components/cart/CartModal";
 import Heart from "@/assets/SVG/Heart";
+import Image from "next/image";
+import axios from "axios";
+// import MobileCart from "../../../assets/Images/MobileCart.png";
+import CartModal from "@/app/components/cart/CartModal";
+import CartIcon from "@/assets/SVG/CartIcon";
 // import { TbCurrencyNaira } from "react-icons/tb";
 // import GoldStars from "@/app/components/GoldStars";
 
@@ -19,8 +21,8 @@ const ProductDetailContent = ({ productId }) => {
     if (productId) {
       const fetchProduct = async () => {
         try {
-          const response = await axios.get(`https://timbu-get-single-product.reavdev.workers.dev/a7c5d5a06d8048b4add06f3ba2024ed9?organization_id=80aafd82afd5454c965591bb966f4011&Appid=6T1T1ZB0FSJSWC1&Apikey=cabe8777a2e643ea8559e4cfe84ce1ac20240712141543542147`);
-          setProduct(response.data?.item);
+          const response = await axios.get(`https://timbu-get-single-product.reavdev.workers.dev/${productId}?organization_id=80aafd82afd5454c965591bb966f4011&Appid=6T1T1ZB0FSJSWC1&Apikey=cabe8777a2e643ea8559e4cfe84ce1ac20240712141543542147`);
+          setProduct(response.data);
           // setRelatedProducts(response.data.relatedProducts);
         } catch (err) {
           setError(err.message);
@@ -53,11 +55,12 @@ const ProductDetailContent = ({ productId }) => {
   return (
     
     <div>
+      
       <div className="md:flex justify-center md:gap-10 bg-[#fbf4f5] py-10">
         <div>
           <div className="w-[90%] flex items-center justify-center mx-auto">
-            {/* <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className="max-w-sm hidden md:flex" /> */}
-            {/* <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt={product.name} className="max-w-sm md:hidden flex" /> */}
+            <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt="Cart Image" className="max-w-sm hidden md:flex" width={250} height={250}/>
+            <Image src={`https://api.timbu.cloud/images/${product?.photos[0]?.url}`} alt="Mobile Cart Image" className="max-w-sm md:hidden flex" width={250} height={250} />
           </div>
 
           <div className="mt-5 hidden md:block">
@@ -65,32 +68,41 @@ const ProductDetailContent = ({ productId }) => {
               <p className="font-medium">Related Products</p>
             </div>
             <div className="flex items-center mx-auto justify-center mt-3">
-              {/* {relatedProducts.slice(0, 2).map((relatedProduct) => (
-                <div key={relatedProduct.id} className="max-w-[80%] mx-auto">
-                  <Image src={`https://api.timbu.cloud/images/${relatedProduct.photos[0].url}`} alt={relatedProduct.name} />
-                  <p className="text-sm text-center pt-2">{relatedProduct.name}</p>
+              <div>
+                <div className="max-w-[80%] mx-auto">
+                  {/* <Image src={RetinolCartImage} alt="Retinol Cart Image" /> */}
                 </div>
-              ))} */}
+                <div>
+                  <p className="text-sm text-center pt-2">Retinol <span className="opacity-[0.7]">Bodycare Lotion</span></p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-center mx-auto">
+                <div className="max-w-[80%] mx-auto">
+                  {/* <Image src={BronzeGoddessCartImage} alt="Bronze Goddess Cart Image" /> */}
+                </div>
+                <div>
+                  <p className="text-sm text-left pt-2">Bronze Goddess <span className="opacity-[0.7]">Bodycare Lotion</span></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div>
-          {
-            product?.map((data, index) => {
-              return(
-                <div>
-                <div className="pt-4 px-5" key={index.id}>
-            <h1 className="text-2xl pb-5">{data?.name}</h1>
-            <p className="pb-4 opacity-[0.7] text-sm">{data?.category}</p>
-            {/* <p className="font-extrabold"><TbCurrencyNaira className="inline text-2xl" />{product.price}</p> */}
+          <div className="pt-4 px-5">
+            <h1 className="text-2xl pb-5">{product?.name} <span className="opacity-[0.7]">Body Moisturizer</span></h1>
+            <p className="pb-4 opacity-[0.7] text-sm">Glycolic and Lactic Acid Body Moisturizer</p>
+            <p className="font-extrabold">#15,000</p>
           </div>
           <div className="max-w-xl py-6 px-5">
-            <p className="leading-[30px] pb-3 opacity-[0.9] text-sm">{data?.description}</p>
+            <p className="leading-[30px] pb-3 opacity-[0.9] text-sm">
+              Medix 5.5 Glycolic and Lactic Acid Body Moisturizer is dermatologist-tested and formulated to provide maximum benefits without compromising on gentleness. Perfect for all skin types, it’s your go-to solution for achieving healthier, glowing skin.
+            </p>
             <ul>
-              {/* {product.features.map((feature, index) => (
-                <li key={index} className="leading-[30px] pb-1 opacity-[0.9] text-sm">{feature}</li>
-              ))} */}
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Exfoliation: Glycolic acid gently removes dead skin cells, promoting cell turnover and revealing fresher, smoother skin.</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Hydration: Lactic acid hydrates and softens the skin, improving texture and tone.</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">pH Balanced: Formulated with a pH of 5.5 to maintain your skin’s natural barrier and prevent irritation.</li>
+              <li className="leading-[30px] pb-1 opacity-[0.9] text-sm">Anti-Aging: Reduces the appearance of fine lines, wrinkles, and hyperpigmentation for a more youthful look.</li>
             </ul>
             <div className="md:flex hidden items-center gap-7 py-6 w-full">
               <div className="border-[1.2px] border-[#ffb6c1] rounded-3xl flex justify-between items-center px-4 py-2">
@@ -117,27 +129,31 @@ const ProductDetailContent = ({ productId }) => {
                 <div className="w-full h-[0.1px] bg-black opacity-[0.2]"></div>
               </div>
             </div>
-            </div>
-          </div>
-    
-
-              )
-            })
-          }
           </div>
         </div>
-          
+      </div>
+
       <div className="md:hidden py-8 bg-[#fbf4f5]">
         <div className="flex items-start max-w-[80%] mx-auto">
           <p className="font-medium max-w-[80%]">Related Products</p>
         </div>
         <div className="flex items-center mx-auto justify-center mt-3">
-          {/* {relatedProducts.slice(0, 2).map((relatedProduct) => (
-            <div key={relatedProduct.id} className="max-w-[80%] mx-auto">
-              <Image src={`https://api.timbu.cloud/images/${relatedProduct.photos[0].url}`} alt={relatedProduct.name} />
-              <p className="text-xs text-center pt-2">{relatedProduct.name}</p>
+          <div>
+            <div className="max-w-[80%] mx-auto">
+              <Image src={`https://api.timbu.cloud/images/${product?.photos?.url}`} alt="Retinol Cart Image" width={250} height={250}/>
             </div>
-          ))} */}
+            <div>
+              <p className="text-xs text-center pt-2">Retinol <span className="opacity-[0.7] text-xs">Bodycare Lotion</span></p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center mx-auto">
+            <div className="max-w-[80%] mx-auto">
+              {/* <Image src={BronzeGoddessCartImage} alt="Bronze Goddess Cart Image" /> */}
+            </div>
+            <div>
+              <p className="text-xs text-left pt-2">Bronze Goddess <span className="opacity-[0.7] text-xs">Bodycare Lotion</span></p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -154,7 +170,12 @@ const ProductDetailContent = ({ productId }) => {
         <div className="w-2/4">
           <button className='bg-[#FFB6C1] w-full rounded-3xl border-[0.2px] border-[#DE8C99] px-5 py-2 text-black font-bold text-sm Login' onClick={handleAddToCart}>Add to cart</button>
         </div>
+        {/* <div className="w-1/4 flex justify-center">
+          <CartIcon className="text-[#ffb6c1] text-2xl" />
+        </div> */}
       </div>
+
+   
     </div>
   );
 };
